@@ -1,0 +1,6 @@
+{
+  "name": "Bloom's Taxonomy Vocabulary Mastery",
+  "description": "Master English vocabulary across all 6 levels of Bloom's Taxonomy pyramid: Remembering, Understanding, Applying, Analyzing, Evaluating, and Creating.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

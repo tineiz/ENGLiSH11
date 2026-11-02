@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom's Taxonomy Vocabulary Mastery — 6 Levels</title>
+  <meta name="description" content="Master English vocabulary across all 6 levels of Bloom's Taxonomy pyramid: Remembering, Understanding, Applying, Analyzing, Evaluating, and Creating.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --c-purple: #7c3aed;
+      --c-blue: #2563eb;
+      --c-green: #059669;
+      --c-yellow: #d97706;
+      --c-orange: #ea580c;
+      --c-red: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    h1, h2, h3, h4, h5, .font-heading {
+      font-family: 'Baloo 2', cursive, sans-serif;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.35rem;
+    }
+
+    /* Overall Progress Bar */
+    .progress-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 0.5rem;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 16.66%;
+      background: var(--c-purple);
+      border-radius: 9999px;
+      transition: width 0.4s ease, background-color 0.4s ease;
+    }
+
+    /* Bloom's Pyramid SVG Container */
+    .pyramid-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .pyramid-wrapper {
+      max-width: 480px;
+      margin: 0 auto 1.25rem;
+    }
+    .pyramid-tier {
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .pyramid-tier:hover path {
+      filter: brightness(1.08);
+    }
+    .pyramid-tier.active path {
+      stroke: #ffffff;
+      stroke-width: 3.5;
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.85));
+    }
+
+    /* Quick Tabs */
+    .step-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.5rem;
+    }
+    .tab-btn {
+      padding: 0.6rem 0.25rem;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      color: #475569;
+    }
+    .tab-btn:hover {
+      background: #f8fafc;
+    }
+    .tab-btn.active {
+      color: #ffffff;
+      box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.15);
+      border-color: rgba(0,0,0,0.1);
+    }
+
+    /* Step Sections */
+    .step-section {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+    .step-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Panel Card */
+    .card-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .panel-header {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .panel-header-title h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .badge-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .panel-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    .score-badge {
+      padding: 0.35rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      white-space: nowrap;
+    }
+
+    /* 3D Flashcard */
+    .flashcard-box {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 520px;
+      height: 250px;
+      margin: 1.5rem auto 1rem;
+      cursor: pointer;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 1.25rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+    .flashcard-inner.flipped {
+      transform: rotateY(180deg);
+    }
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ddd6fe;
+    }
+    .card-front {
+      background: #ffffff;
+    }
+    .card-back {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #ffffff;
+      transform: rotateY(180deg);
+    }
+
+    /* Grids & Cards */
+    .exercise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+    .item-card {
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .item-card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Option Buttons */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .options-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+    .options-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    .options-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .option-btn {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      background: #ffffff;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      transition: all 0.15s ease;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .option-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .option-btn.selected {
+      border-color: #7c3aed;
+      background: #f5f3ff;
+      color: #5b21b6;
+      font-weight: 700;
+    }
+    .option-btn.correct {
+      border-color: #10b981 !important;
+      background: #ecfdf5 !important;
+      color: #065f46 !important;
+      font-weight: 800 !important;
+    }
+    .option-btn.wrong {
+      border-color: #ef4444 !important;
+      background: #fef2f2 !important;
+      color: #991b1b !important;
+      text-decoration: line-through;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      margin-top: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 0.6rem;
+      font-size: 0.8rem;
+      color: #166534;
+      line-height: 1.4;
+    }
+
+    /* Buttons */
+    .action-btn {
+      padding: 0.65rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #2563eb;
+      border: none;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .action-btn:hover {
+      opacity: 0.9;
+    }
+    .secondary-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .secondary-btn:hover {
+      background: #f1f5f9;
+    }
+
+    /* Word Bank Chips */
+    .chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      margin: 0.25rem;
+      transition: all 0.15s;
+      color: #334155;
+    }
+    .chip-btn:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+    .chip-btn.used {
+      background: #059669;
+      border-color: #047857;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Form Inputs */
+    textarea {
+      width: 100%;
+      padding: 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #1e293b;
+      line-height: 1.5;
+      resize: vertical;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+    select {
+      padding: 0.35rem 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: #ffffff;
+      color: #1e293b;
+    }
+
+    /* Dialogue bubble */
+    .dialogue-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .speaker-label {
+      font-weight: 800;
+      font-family: 'Baloo 2', sans-serif;
+      margin-right: 0.35rem;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    @media (max-width: 640px) {
+      .step-tabs { grid-template-columns: repeat(3, 1fr); }
+      .options-grid { grid-template-columns: 1fr; }
+      .options-grid-3 { grid-template-columns: 1fr; }
+      .options-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .exercise-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Bloom's Taxonomy Vocabulary Mastery</h1>
+      <p>6-Stage Deep Learning Framework: Remembering → Understanding → Applying → Analyzing → Evaluating → Creating</p>
+    </header>
+
+    <!-- Overall Progress Tracker -->
+    <div class="progress-card">
+      <div class="progress-info">
+        <span id="progress-text">Pyramid Mastery: Step 1 of 6 Active</span>
+        <span id="progress-percent">17%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Interactive Bloom's Pyramid SVG -->
+    <div class="pyramid-card">
+      <div class="pyramid-wrapper">
+        <svg viewBox="0 0 500 375" style="width: 100%; height: auto;" role="img" aria-label="Bloom's Taxonomy 6-level pyramid">
+          <!-- Tier 6 Creating (Red) -->
+          <g class="pyramid-tier" id="pyr-6" onclick="goToStep(6)">
+            <path d="M 250 15 L 285 70 L 215 70 Z" fill="#dc2626" />
+            <text x="250" y="52" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700" font-family="'Baloo 2', sans-serif">6. CREATING</text>
+          </g>
+          <!-- Tier 5 Evaluating (Orange) -->
+          <g class="pyramid-tier" id="pyr-5" onclick="goToStep(5)">
+            <path d="M 213 74 L 287 74 L 324 128 L 176 128 Z" fill="#ea580c" />
+            <text x="250" y="106" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="'Baloo 2', sans-serif">5. EVALUATING</text>
+          </g>
+          <!-- Tier 4 Analyzing (Yellow) -->
+          <g class="pyramid-tier" id="pyr-4" onclick="goToStep(4)">
+            <path d="M 174 132 L 326 132 L 363 186 L 137 186 Z" fill="#eab308" />
+            <text x="250" y="164" text-anchor="middle" fill="#1c1917" font-size="14" font-weight="700" font-family="'Baloo 2', sans-serif">4. ANALYZING</text>
+          </g>
+          <!-- Tier 3 Applying (Green) -->
+          <g class="pyramid-tier" id="pyr-3" onclick="goToStep(3)">
+            <path d="M 135 190 L 365 190 L 402 244 L 98 244 Z" fill="#059669" />
+            <text x="250" y="222" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="'Baloo 2', sans-serif">3. APPLYING</text>
+          </g>
+          <!-- Tier 2 Understanding (Blue) -->
+          <g class="pyramid-tier" id="pyr-2" onclick="goToStep(2)">
+            <path d="M 96 248 L 404 248 L 441 302 L 59 302 Z" fill="#2563eb" />
+            <text x="250" y="280" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="'Baloo 2', sans-serif">2. UNDERSTANDING</text>
+          </g>
+          <!-- Tier 1 Remembering (Purple) -->
+          <g class="pyramid-tier active" id="pyr-1" onclick="goToStep(1)">
+            <path d="M 57 306 L 443 306 L 480 360 L 20 360 Z" fill="#7c3aed" />
+            <text x="250" y="338" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700" font-family="'Baloo 2', sans-serif">1. REMEMBERING</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Quick Step Navigation Tabs -->
+      <div class="step-tabs">
+        <button class="tab-btn active" id="tab-1" onclick="goToStep(1)" style="background: #7c3aed; color: #fff;">1. Remembering</button>
+        <button class="tab-btn" id="tab-2" onclick="goToStep(2)">2. Understanding</button>
+        <button class="tab-btn" id="tab-3" onclick="goToStep(3)">3. Applying</button>
+        <button class="tab-btn" id="tab-4" onclick="goToStep(4)">4. Analyzing</button>
+        <button class="tab-btn" id="tab-5" onclick="goToStep(5)">5. Evaluating</button>
+        <button class="tab-btn" id="tab-6" onclick="goToStep(6)">6. Creating</button>
+      </div>
+    </div>
+
+    <!-- STEP 1 CONTENT -->
+    <div class="step-section active" id="step-1-content"></div>
+
+    <!-- STEP 2 CONTENT -->
+    <div class="step-section" id="step-2-content"></div>
+
+    <!-- STEP 3 CONTENT -->
+    <div class="step-section" id="step-3-content"></div>
+
+    <!-- STEP 4 CONTENT -->
+    <div class="step-section" id="step-4-content"></div>
+
+    <!-- STEP 5 CONTENT -->
+    <div class="step-section" id="step-5-content"></div>
+
+    <!-- STEP 6 CONTENT -->
+    <div class="step-section" id="step-6-content"></div>
+
+    <!-- Bottom Step Progression Navigation -->
+    <div class="bottom-nav">
+      <button class="secondary-btn" id="btn-prev-step" onclick="changeStepRelative(-1)">← Previous Level</button>
+      <span id="bottom-step-indicator" style="font-weight: 800; font-size: 0.95rem; font-family: 'Baloo 2', sans-serif;">Level 1: Remembering</span>
+      <button class="action-btn" id="btn-next-step" onclick="changeStepRelative(1)" style="background: #7c3aed;">Next Level →</button>
+    </div>
+  </div>
+
+  <!-- SINGLE SCRIPT BLOCK AT BOTTOM OF BODY -->
+  <script>
+    // Complete 10 rich B2/C1 vocabulary words with full pedagogical data
+    const VOCABULARY = [
+      {
+        id: 'hesitate',
+        word: 'hesitate',
+        russian: 'колебаться, сомневаться',
+        example: 'Please do not hesitate to contact our team if any unexpected problems arise.',
+        definition: 'To pause before saying or doing something, often because you are uncertain or reluctant.',
+        synonym: 'waver',
+        synonymDistractors: ['accelerate', 'command', 'celebrate'],
+        synonymExplanation: "Both 'hesitate' and 'waver' denote pausing momentarily due to uncertainty before committing to an action.",
+        gapSentence: 'She noticed smoke coming from the engine and did not {{word}} for a second before pulling over.',
+        sentenceCompletion: {
+          prompt: 'When offered the leadership role overseas, Marco began to hesitate...',
+          correctEnding: '...because he was worried about how the sudden relocation would disrupt his family.',
+          distractors: [
+            '...because he had already packed all his luggage two months in advance.',
+            '...so he instantly signed the contract with absolute joy and certainty.'
+          ],
+          explanation: "'Hesitate' indicates uncertainty; worrying about family upheaval explains the pause."
+        },
+        dialogue: {
+          speakerA: 'Are you coming with us to the presentation, or do you need more time?',
+          speakerB: "Don't {{word}} on my account—go ahead, and I'll catch up in five minutes.",
+          targetWord: 'hesitate',
+          distractors: ['thrive', 'advocate']
+        },
+        oddOneOut: {
+          words: ['hesitate', 'falter', 'persist'],
+          intruder: 'persist',
+          explanation: "'Hesitate' and 'falter' convey wavering; 'persist' means pushing forward firmly without stopping."
+        },
+        wordFamily: { verb: 'hesitate', noun: 'hesitation', adjective: 'hesitant', adverb: 'hesitantly' },
+        category: 'Actions & Decisions',
+        openQuestion: 'Describe a significant choice in your career or studies where you did not hesitate at all. What gave you that clarity?',
+        sampleOpenAnswer: 'When I received the scholarship to study abroad, I did not hesitate for a second because I knew such an opportunity would never appear twice.',
+        register: 'Neutral',
+        registerExplanation: "'Hesitate' is neutral and versatile: appropriate in everyday conversations as well as formal correspondence.",
+        agreeDisagreeStatement: 'In modern business, leaders who hesitate even for one day will inevitably lose out to bolder competitors.',
+        discussionPrompt: 'Why do you take this position? Discuss whether deliberate hesitation is sometimes wiser than impulsive speed.'
+      },
+      {
+        id: 'persuade',
+        word: 'persuade',
+        russian: 'убеждать, склонять',
+        example: 'Her presentation was so well-researched that she managed to persuade the entire board.',
+        definition: 'To convince someone to do or believe something through reasoning, evidence, or argument.',
+        synonym: 'convince',
+        synonymDistractors: ['intimidate', 'confuse', 'forbid'],
+        synonymExplanation: "Both 'persuade' and 'convince' involve changing someone's opinion or decision through rational reasoning.",
+        gapSentence: 'The scientist used verifiable climate data to {{word}} skeptical lawmakers to fund the renewable project.',
+        sentenceCompletion: {
+          prompt: 'The negotiator brought detailed economic figures to the meeting in order to persuade the council...',
+          correctEnding: '...that investing in solar public transport would yield substantial savings within three years.',
+          distractors: [
+            '...to cancel all discussions permanently without looking at the proposal.',
+            '...that numbers and financial audits are completely irrelevant to budget decisions.'
+          ],
+          explanation: "Persuading someone requires demonstrating tangible benefits or sound reasoning, such as long-term financial savings."
+        },
+        dialogue: {
+          speakerA: 'Did Liam agree to lead the workshop next weekend?',
+          speakerB: 'Not yet, but I think a short phone call from you will {{word}} him.',
+          targetWord: 'persuade',
+          distractors: ['hinder', 'subtle']
+        },
+        oddOneOut: {
+          words: ['persuade', 'influence', 'coerce'],
+          intruder: 'coerce',
+          explanation: "'Persuade' and 'influence' rely on reasoning or voluntary agreement; 'coerce' implies forcing someone against their will."
+        },
+        wordFamily: { verb: 'persuade', noun: 'persuasion', adjective: 'persuasive', adverb: 'persuasively' },
+        category: 'Actions & Decisions',
+        openQuestion: 'Can you recall a time when someone managed to persuade you to change your mind about an important issue?',
+        sampleOpenAnswer: 'My mentor managed to persuade me that stepping outside my comfort zone was the only way to master public speaking.',
+        register: 'Neutral',
+        registerExplanation: "'Persuade' is standard neutral English, widely utilized in academic essays and casual dialogues.",
+        agreeDisagreeStatement: 'It is far more valuable to persuade others through emotional storytelling than through dry statistical evidence.',
+        discussionPrompt: 'Do you agree or disagree? Explain which tool you find more compelling when making personal purchasing decisions.'
+      },
+      {
+        id: 'reluctant',
+        word: 'reluctant',
+        russian: 'неохотный, сопротивляющийся',
+        example: 'He was reluctant to admit that he had made a critical mistake in the financial spreadsheet.',
+        definition: 'Feeling or showing hesitation, unwillingness, or disinclination to do something.',
+        synonym: 'unwilling',
+        synonymDistractors: ['eager', 'enthusiastic', 'fearless'],
+        synonymExplanation: "Both 'reluctant' and 'unwilling' describe holding back because of hesitation or doubt.",
+        gapSentence: 'Although exhausted, the doctor was {{word}} to leave the patient until the vital signs stabilized.',
+        sentenceCompletion: {
+          prompt: 'The young author was initially reluctant to share her draft with the publisher...',
+          correctEnding: '...fearing that harsh editorial criticism might crush her confidence before the book was finished.',
+          distractors: [
+            '...because she had already distributed ten thousand printed copies across the city.',
+            '...since she loved nothing more than having strangers read her private diary.'
+          ],
+          explanation: "A person is 'reluctant' when they harbor reservations or fears, such as anxiety over critical feedback."
+        },
+        dialogue: {
+          speakerA: 'Did the department head approve our budget request?',
+          speakerB: 'She was {{word}} at first, but agreed after we showed the projected cost reductions.',
+          targetWord: 'reluctant',
+          distractors: ['ambiguous', 'crucial']
+        },
+        oddOneOut: {
+          words: ['reluctant', 'hesitant', 'keen'],
+          intruder: 'keen',
+          explanation: "'Reluctant' and 'hesitant' signify hesitation; 'keen' means eager, enthusiastic, and ready to act."
+        },
+        wordFamily: { verb: '(none - state)', noun: 'reluctance', adjective: 'reluctant', adverb: 'reluctantly' },
+        category: 'States & Mindset',
+        openQuestion: 'What is a task or responsibility that you are usually reluctant to begin, and how do you overcome that hesitation?',
+        sampleOpenAnswer: 'I am often reluctant to organize my tax receipts, but setting a 20-minute timer helps me start without dread.',
+        register: 'Neutral',
+        registerExplanation: "'Reluctant' is standard neutral vocabulary, ideal for formal reporting as well as casual conversations.",
+        agreeDisagreeStatement: 'Employees who are reluctant to adopt generative AI tools will become obsolete within the next five years.',
+        discussionPrompt: 'Reflect on whether hesitation around new technology is justified caution or self-destructive resistance.'
+      },
+      {
+        id: 'thrive',
+        word: 'thrive',
+        russian: 'процветать, преуспевать',
+        example: 'Independent bookstores continue to thrive by hosting community gatherings and author book clubs.',
+        definition: 'To grow vigorously, develop well, or flourish successfully in a supportive environment.',
+        synonym: 'flourish',
+        synonymDistractors: ['deteriorate', 'shrink', 'stagnate'],
+        synonymExplanation: "Both 'thrive' and 'flourish' express robust healthy growth, outstanding success, and prosperous development.",
+        gapSentence: 'Children generally {{word}} in environments where they receive consistent encouragement and clear guidance.',
+        sentenceCompletion: {
+          prompt: 'After transferring to the smaller laboratory, the young biochemist began to thrive...',
+          correctEnding: '...because she finally had direct mentorship and unrestricted access to advanced sequencing equipment.',
+          distractors: [
+            '...despite having every single resource and grant abruptly cancelled on day one.',
+            '...so she gave up all scientific research and moved to a deserted island.'
+          ],
+          explanation: "'Thrive' means flourishing; having direct mentorship and high-grade equipment provides the ideal fertile environment to thrive."
+        },
+        dialogue: {
+          speakerA: 'How is your new boutique café performing on the quiet side street?',
+          speakerB: 'Surprisingly, we {{word}} on word-of-mouth recommendations and loyal neighborhood regulars.',
+          targetWord: 'thrive',
+          distractors: ['hesitate', 'hinder']
+        },
+        oddOneOut: {
+          words: ['thrive', 'prosper', 'languish'],
+          intruder: 'languish',
+          explanation: "'Thrive' and 'prosper' describe flourishing; 'languish' means losing vitality or deteriorating."
+        },
+        wordFamily: { verb: 'thrive', noun: '(thriving/prosperity)', adjective: 'thriving', adverb: 'thrivingly' },
+        category: 'Qualities & Impact',
+        openQuestion: 'In what kind of working environment do you personally thrive the most: highly structured or completely autonomous?',
+        sampleOpenAnswer: 'I thrive most in an autonomous environment where outcomes are measured rather than hours spent sitting at a desk.',
+        register: 'Neutral',
+        registerExplanation: "'Thrive' is an elegant neutral word used in biology, economics, psychology, and personal conversations.",
+        agreeDisagreeStatement: 'High levels of workplace stress are an unavoidable prerequisite for ambitious professionals to thrive.',
+        discussionPrompt: 'Do you believe pressure pushes people to peak achievement, or does chronic stress prevent sustainable flourishing?'
+      },
+      {
+        id: 'ambiguous',
+        word: 'ambiguous',
+        russian: 'двусмысленный, неясный',
+        example: 'The contract contained ambiguous language regarding who was responsible for international shipping fees.',
+        definition: 'Open to more than one interpretation; having a double or unclear meaning; vague.',
+        synonym: 'equivocal',
+        synonymDistractors: ['lucid', 'unmistakable', 'explicit'],
+        synonymExplanation: "Both 'ambiguous' and 'equivocal' refer to statements that can be understood in multiple ways and lack clarity.",
+        gapSentence: 'The politician gave an {{word}} answer when asked whether she would support the tax reform bill.',
+        sentenceCompletion: {
+          prompt: 'Because the instructions on the chemistry exam were ambiguous...',
+          correctEnding: '...half the students solved for molarity while the other half calculated total pressure.',
+          distractors: [
+            '...every single student achieved exactly one hundred percent without asking a single question.',
+            '...the laboratory director wrote an apology letter for being excessively clear and concise.'
+          ],
+          explanation: "Ambiguous instructions produce divergent interpretations, leading students to answer in two completely different ways."
+        },
+        dialogue: {
+          speakerA: 'Did the client confirm whether we should launch the campaign on Friday?',
+          speakerB: 'Her email was rather {{word}}—she said "proceed if all feels right", so I will call for clarification.',
+          targetWord: 'ambiguous',
+          distractors: ['resilient', 'reluctant']
+        },
+        oddOneOut: {
+          words: ['ambiguous', 'obscure', 'transparent'],
+          intruder: 'transparent',
+          explanation: "'Ambiguous' and 'obscure' denote lack of clarity; 'transparent' means clear, plain, and obvious."
+        },
+        wordFamily: { verb: '(none)', noun: 'ambiguity', adjective: 'ambiguous', adverb: 'ambiguously' },
+        category: 'Qualities & Impact',
+        openQuestion: 'Why is ambiguous feedback from a supervisor often more frustrating than negative but direct feedback?',
+        sampleOpenAnswer: 'Ambiguous feedback leaves you second-guessing what needs improvement, whereas direct feedback gives a concrete roadmap for change.',
+        register: 'Formal',
+        registerExplanation: "'Ambiguous' leans formal and analytical; frequently used in legal, academic, and policy discourse.",
+        agreeDisagreeStatement: 'Great poetry and art must remain ambiguous; once a poem has a single definitive meaning, it loses its magic.',
+        discussionPrompt: 'Defend whether artistic ambiguity enriches the viewer’s experience or merely disguises intellectual laziness.'
+      },
+      {
+        id: 'crucial',
+        word: 'crucial',
+        russian: 'решающий, ключевой',
+        example: 'Getting sufficient deep sleep is crucial for long-term memory consolidation and immune defense.',
+        definition: 'Decisive or critical, especially in the success or failure of something; of supreme importance.',
+        synonym: 'pivotal',
+        synonymDistractors: ['trivial', 'incidental', 'optional'],
+        synonymExplanation: "Both 'crucial' and 'pivotal' characterize something upon which a critical outcome hinges.",
+        gapSentence: 'Maintaining strict quality standards was {{word}} to retaining our ISO certification this year.',
+        sentenceCompletion: {
+          prompt: 'Early detection of software vulnerabilities is crucial...',
+          correctEnding: '...because fixing bugs after customer deployment costs twenty times more and damages corporate reputation.',
+          distractors: [
+            '...since nobody ever cares if sensitive user passwords leak onto the dark web.',
+            '...so developers can ignore code reviews and deploy untested patches directly to production.'
+          ],
+          explanation: "Something is 'crucial' when overlooking it carries catastrophic consequences, such as massive security costs."
+        },
+        dialogue: {
+          speakerA: 'Should we rush the beta release before the holiday weekend?',
+          speakerB: 'I advise against it; thorough stress testing is {{word}} before thousands of users log on.',
+          targetWord: 'crucial',
+          distractors: ['hesitate', 'persuade']
+        },
+        oddOneOut: {
+          words: ['crucial', 'essential', 'negligible'],
+          intruder: 'negligible',
+          explanation: "'Crucial' and 'essential' express paramount importance; 'negligible' signifies something so minor it can be disregarded."
+        },
+        wordFamily: { verb: '(none)', noun: 'crucialness', adjective: 'crucial', adverb: 'crucially' },
+        category: 'Qualities & Impact',
+        openQuestion: 'What is one crucial piece of advice you would offer to someone starting their first professional role?',
+        sampleOpenAnswer: 'A crucial habit is asking clarifying questions early instead of pretending you understand when you are unsure.',
+        register: 'Neutral',
+        registerExplanation: "'Crucial' is a strong neutral-to-formal adjective, widely welcomed across academic and conversational settings.",
+        agreeDisagreeStatement: 'Technical competence is far more crucial to career progression than emotional intelligence.',
+        discussionPrompt: 'Weigh technical domain expertise against interpersonal skills in high-stakes organizational environments.'
+      },
+      {
+        id: 'resilient',
+        word: 'resilient',
+        russian: 'стойкий, жизнестойкий',
+        example: 'The island community proved remarkably resilient, rebuilding their homes within months of the typhoon.',
+        definition: 'Able to withstand or recover quickly from difficult conditions, adversity, or shock.',
+        synonym: 'tenacious',
+        synonymDistractors: ['fragile', 'vulnerable', 'yielding'],
+        synonymExplanation: "Both 'resilient' and 'tenacious' refer to staying strong and bouncing back from setbacks.",
+        gapSentence: 'Modern distributed cloud architectures are engineered to be {{word}} against sudden server outages.',
+        sentenceCompletion: {
+          prompt: 'Despite losing her primary client in the first quarter, the resilient startup founder...',
+          correctEnding: '...pivoted her marketing strategy and secured three enterprise contracts before the year ended.',
+          distractors: [
+            '...shut down all operations, declared bankruptcy, and refused to answer phone calls ever again.',
+            '...celebrated by throwing all financial records into the garbage can.'
+          ],
+          explanation: "A 'resilient' person responds to disaster with constructive recovery, adaptability, and persevering effort."
+        },
+        dialogue: {
+          speakerA: 'I heard Maya fractured her ankle right before the championship.',
+          speakerB: "She's incredibly {{word}}—she's already in physical therapy and coaching her teammates from the bench.",
+          targetWord: 'resilient',
+          distractors: ['ambiguous', 'reluctant']
+        },
+        oddOneOut: {
+          words: ['resilient', 'hardy', 'delicate'],
+          intruder: 'delicate',
+          explanation: "'Resilient' and 'hardy' describe the ability to endure hardship; 'delicate' means easily damaged or frail."
+        },
+        wordFamily: { verb: '(resile - rare)', noun: 'resilience', adjective: 'resilient', adverb: 'resiliently' },
+        category: 'States & Mindset',
+        openQuestion: 'Think of someone you admire for being resilient. What specific habit or mindset makes them bounce back from adversity?',
+        sampleOpenAnswer: 'My grandmother is remarkably resilient; she treats setbacks as temporary detours rather than permanent defeats.',
+        register: 'Neutral',
+        registerExplanation: "'Resilient' is widely used across psychology, engineering, ecology, and daily life to denote toughness and recovery.",
+        agreeDisagreeStatement: 'Resilience is not an innate genetic trait; it is a mental discipline that can be deliberately trained through discomfort.',
+        discussionPrompt: 'Share whether you believe hardship naturally builds emotional resilience, or if some hardships simply traumatize.'
+      },
+      {
+        id: 'advocate',
+        word: 'advocate',
+        russian: 'выступать за, отстаивать',
+        example: 'She has continued to advocate for stricter privacy regulations on artificial intelligence companies.',
+        definition: 'To publicly recommend or support a particular cause, policy, or course of action.',
+        synonym: 'champion',
+        synonymDistractors: ['oppose', 'denounce', 'undermine'],
+        synonymExplanation: "Both 'advocate' and 'champion' describe publicly standing up for and defending a cause or proposal.",
+        gapSentence: 'Many pediatricians {{word}} limiting recreational screen time for toddlers under two years old.',
+        sentenceCompletion: {
+          prompt: 'Urban planners consistently advocate for protected bicycle lanes...',
+          correctEnding: '...to reduce traffic fatalities and encourage carbon-neutral commuter travel across dense city centers.',
+          distractors: [
+            '...so that automobiles can drive on sidewalks and eliminate pedestrian walking completely.',
+            '...because they believe cycling should be outlawed on all public streets.'
+          ],
+          explanation: "'Advocating' for something means promoting its benefits, such as highway safety and lower carbon emissions."
+        },
+        dialogue: {
+          speakerA: 'Who brought up the proposal for flexible summer hours?',
+          speakerB: 'Elena decided to {{word}} for the whole department during the quarterly staff meeting.',
+          targetWord: 'advocate',
+          distractors: ['hinder', 'hesitate']
+        },
+        oddOneOut: {
+          words: ['advocate', 'endorse', 'condemn'],
+          intruder: 'condemn',
+          explanation: "'Advocate' and 'endorse' mean giving public approval and support; 'condemn' means expressing complete disapproval."
+        },
+        wordFamily: { verb: 'advocate', noun: 'advocacy', adjective: 'advocatory', adverb: 'advocatingly' },
+        category: 'Actions & Decisions',
+        openQuestion: 'What is one educational or community policy that you would passionately advocate for in your hometown?',
+        sampleOpenAnswer: 'I would advocate for municipal funding for free adult coding and language workshops at every public library.',
+        register: 'Formal',
+        registerExplanation: "'Advocate' is predominantly formal and academic, frequently seen in policy debates and legal proceedings.",
+        agreeDisagreeStatement: 'Scientists should remain purely objective observers and never openly advocate for political policies.',
+        discussionPrompt: 'Discuss whether researchers have an ethical obligation to advocate for evidence-based legislation or maintain neutral distance.'
+      },
+      {
+        id: 'hinder',
+        word: 'hinder',
+        russian: 'препятствовать, мешать',
+        example: 'Excessive bureaucratic regulations hinder small business owners from launching innovative services.',
+        definition: 'To create difficulties for someone or something, resulting in delay, obstruction, or impediment.',
+        synonym: 'impede',
+        synonymDistractors: ['facilitate', 'accelerate', 'promote'],
+        synonymExplanation: "Both 'hinder' and 'impede' mean placing obstacles in the path of progress or slowing someone down.",
+        gapSentence: 'Heavy snowfall and low visibility threaten to {{word}} rescue operations in the northern mountain range.',
+        sentenceCompletion: {
+          prompt: 'Micromanagement within a software team tends to hinder productivity...',
+          correctEnding: '...because engineers spend more time writing justification reports than building functional features.',
+          distractors: [
+            '...which instantly accelerates product delivery and makes all programmers extraordinarily happy.',
+            '...since no developer ever needs autonomy or creative freedom when writing complex logic.'
+          ],
+          explanation: "'Hinder' means creating bottlenecks; excessive oversight hampers flow and wastes valuable engineering hours."
+        },
+        dialogue: {
+          speakerA: 'Will the subway strike affect our supplier delivery schedule?',
+          speakerB: 'It will definitely {{word}} cargo distribution across the metro region for a few days.',
+          targetWord: 'hinder',
+          distractors: ['thrive', 'persuade']
+        },
+        oddOneOut: {
+          words: ['hinder', 'obstruct', 'expedite'],
+          intruder: 'expedite',
+          explanation: "'Hinder' and 'obstruct' mean slowing down or blocking; 'expedite' means speeding up an action or process."
+        },
+        wordFamily: { verb: 'hinder', noun: 'hindrance', adjective: 'hindering', adverb: 'hinderingly' },
+        category: 'Actions & Decisions',
+        openQuestion: 'What bad digital habit most severely hinders your personal focus when studying or working remotely?',
+        sampleOpenAnswer: 'Keeping social media notification badges active on my desktop hinders my focus by fracturing my concentration.',
+        register: 'Neutral',
+        registerExplanation: "'Hinder' is a standard neutral verb, common in business analyses, scientific papers, and everyday discussions.",
+        agreeDisagreeStatement: 'Failures and setbacks do not hinder true mastery; they are the fastest catalyst for intellectual growth.',
+        discussionPrompt: 'Debate whether structural obstacles stimulate creativity or simply burn out motivated individuals.'
+      },
+      {
+        id: 'subtle',
+        word: 'subtle',
+        russian: 'тонкий, едва уловимый',
+        example: 'There was a subtle change in his tone of voice that indicated he was not entirely convinced.',
+        definition: 'So delicate or precise as to be difficult to analyze, notice, or describe; understated.',
+        synonym: 'nuanced',
+        synonymDistractors: ['glaring', 'blatant', 'overt'],
+        synonymExplanation: "Both 'subtle' and 'nuanced' describe qualities that are delicate, fine-grained, and easily missed by casual observers.",
+        gapSentence: 'The chef added a {{word}} hint of grated nutmeg to elevate the creamy squash soup.',
+        sentenceCompletion: {
+          prompt: 'A master chess player detects subtle positional weaknesses in the opponent’s defense...',
+          correctEnding: '...long before a beginner realizes that any threat has even materialized on the board.',
+          distractors: [
+            '...by screaming loudly and throwing all the pieces into the audience.',
+            '...only when the referee blows a giant whistle to announce checkmate.'
+          ],
+          explanation: "A 'subtle' weakness is hidden and delicate; expert insight recognizes it before it becomes blatant."
+        },
+        dialogue: {
+          speakerA: 'Did you notice any difference in the remastered recording of the album?',
+          speakerB: "Yes, the acoustic balance has a {{word}} warmth that was missing in the original mix.",
+          targetWord: 'subtle',
+          distractors: ['reluctant', 'ambiguous']
+        },
+        oddOneOut: {
+          words: ['subtle', 'understated', 'conspicuous'],
+          intruder: 'conspicuous',
+          explanation: "'Subtle' and 'understated' represent delicate details; 'conspicuous' means standing out clearly and attracting notice."
+        },
+        wordFamily: { verb: '(subtilize - literary)', noun: 'subtlety', adjective: 'subtle', adverb: 'subtly' },
+        category: 'Qualities & Impact',
+        openQuestion: 'Why is mastering subtle nuances of body language or tone so important in cross-cultural diplomacy or business?',
+        sampleOpenAnswer: 'In international diplomacy, a subtle smile or brief pause can communicate agreement or firm refusal without causing embarrassment.',
+        register: 'Neutral',
+        registerExplanation: "'Subtle' is a classic literary and conversational adjective, prized in art criticism, psychology, and polite conversation.",
+        agreeDisagreeStatement: 'Subtle persuasion is always more enduring than overt dominance in leadership.',
+        discussionPrompt: 'Explore whether quiet, understated influence creates deeper loyalty than loud, explicit authority.'
+      }
+    ];
+
+    // Helper functions
+    function shuffleArray(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    let activeStep = 1;
+    let currentCardIdx = 0;
+    let s1Words = [];
+
+    const stepColors = {
+      1: '#7c3aed',
+      2: '#2563eb',
+      3: '#059669',
+      4: '#d97706',
+      5: '#ea580c',
+      6: '#dc2626'
+    };
+
+    const stepNames = {
+      1: 'Level 1: Remembering',
+      2: 'Level 2: Understanding',
+      3: 'Level 3: Applying',
+      4: 'Level 4: Analyzing',
+      5: 'Level 5: Evaluating',
+      6: 'Level 6: Creating'
+    };
+
+    function goToStep(num) {
+      activeStep = num;
+      for (let i = 1; i <= 6; i++) {
+        const sec = document.getElementById('step-' + i + '-content');
+        const tab = document.getElementById('tab-' + i);
+        const pyr = document.getElementById('pyr-' + i);
+        if (sec) sec.classList.toggle('active', i === num);
+        if (pyr) pyr.classList.toggle('active', i === num);
+        if (tab) {
+          tab.classList.toggle('active', i === num);
+          tab.style.background = (i === num) ? stepColors[i] : '#ffffff';
+          tab.style.color = (i === num) ? '#ffffff' : '#475569';
+        }
+      }
+
+      // Update progress bar
+      const fill = document.getElementById('progress-fill');
+      const pText = document.getElementById('progress-text');
+      const pPercent = document.getElementById('progress-percent');
+      const percent = Math.round((num / 6) * 100);
+      if (fill) {
+        fill.style.width = percent + '%';
+        fill.style.backgroundColor = stepColors[num];
+      }
+      if (pText) pText.innerText = 'Pyramid Mastery: ' + stepNames[num] + ' Active';
+      if (pPercent) pPercent.innerText = percent + '%';
+
+      // Update bottom nav
+      const bText = document.getElementById('bottom-step-indicator');
+      const bNext = document.getElementById('btn-next-step');
+      const bPrev = document.getElementById('btn-prev-step');
+      if (bText) bText.innerText = stepNames[num];
+      if (bNext) {
+        bNext.style.backgroundColor = stepColors[num];
+        bNext.disabled = num === 6;
+        bNext.style.opacity = num === 6 ? '0.4' : '1';
+      }
+      if (bPrev) {
+        bPrev.disabled = num === 1;
+        bPrev.style.opacity = num === 1 ? '0.4' : '1';
+      }
+
+      window.scrollTo({ top: 380, behavior: 'smooth' });
+    }
+
+    function changeStepRelative(delta) {
+      const target = activeStep + delta;
+      if (target >= 1 && target <= 6) {
+        goToStep(target);
+      }
+    }
+
+    /* STEP 1: REMEMBERING */
+    function flipCard(el) {
+      el.classList.toggle('flipped');
+    }
+
+    function prevCard() {
+      currentCardIdx = (currentCardIdx - 1 + s1Words.length) % s1Words.length;
+      renderActiveFlashcard();
+    }
+
+    function nextCard() {
+      currentCardIdx = (currentCardIdx + 1) % s1Words.length;
+      renderActiveFlashcard();
+    }
+
+    function renderActiveFlashcard() {
+      const container = document.getElementById('flashcard-render-zone');
+      if (!container) return;
+      const w = s1Words[currentCardIdx];
+      container.innerHTML = `
+        <div class="flashcard-box" onclick="flipCard(this.querySelector('.flashcard-inner'))">
+          <div class="flashcard-inner">
+            <div class="card-face card-front">
+              <span style="font-size:0.75rem; color:#7c3aed; font-weight:700;">FRONT · RUSSIAN (Card ${currentCardIdx + 1} of ${s1Words.length})</span>
+              <div style="font-size:2rem; font-weight:800; font-family:'Baloo 2', sans-serif; color:#1e293b;">${w.russian}</div>
+              <span style="font-size:0.8rem; color:#8b5cf6; font-weight:600;">Click card to flip for English</span>
+            </div>
+            <div class="card-face card-back">
+              <span style="font-size:0.75rem; color:#e0e7ff; font-weight:700;">BACK · ENGLISH</span>
+              <div style="font-size:2.25rem; font-weight:800; font-family:'Baloo 2', sans-serif;">${w.word}</div>
+              <p style="font-style:italic; font-size:0.95rem; opacity:0.95; max-width:420px;">"${w.example}"</p>
+              <span style="font-size:0.8rem; color:#c7d2fe; font-weight:600;">Click to flip back</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:center; align-items:center; gap:1rem; margin-top:1rem;">
+          <button class="secondary-btn" onclick="prevCard()">← Previous Card</button>
+          <span style="font-size:0.8rem; font-weight:700; color:#64748b;">${currentCardIdx + 1} / ${s1Words.length}</span>
+          <button class="secondary-btn" onclick="nextCard()">Next Card →</button>
+        </div>
+      `;
+    }
+
+    function buildStep1() {
+      s1Words = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-1-content');
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#7c3aed;">1</span> Interactive Memory Flashcards</h3>
+              <p>FRONT shows Russian translation only. Click to flip for English word + natural usage sentence.</p>
+            </div>
+          </div>
+          <div id="flashcard-render-zone"></div>
+        </div>
+
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#7c3aed;">2</span> Memory Retrieval Quiz</h3>
+              <p>Read the Russian meaning and pick the correct English word from 4 shuffled options.</p>
+            </div>
+            <div class="score-badge" id="s1-quiz-score">Answer options below</div>
+          </div>
+          <div class="exercise-grid">
+      `;
+
+      s1Words.forEach((target, idx) => {
+        const others = VOCABULARY.filter(x => x.id !== target.id);
+        const distractors = shuffleArray(others).slice(0, 3).map(x => x.word);
+        const options = shuffleArray([target.word, ...distractors]);
+
+        html += `
+          <div class="item-card" id="s1-q-${target.id}">
+            <div>
+              <div class="item-card-header">
+                <span style="color:#7c3aed;">Question ${idx + 1}</span>
+                <span id="s1-status-${target.id}"></span>
+              </div>
+              <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:0.6rem; padding:0.75rem; text-align:center; margin:0.5rem 0;">
+                <span style="font-size:0.7rem; color:#94a3b8; font-weight:700; text-transform:uppercase;">Russian Prompt</span>
+                <div style="font-size:1.15rem; font-weight:800; font-family:'Baloo 2', sans-serif; color:#0f172a;">"${target.russian}"</div>
+              </div>
+            </div>
+            <div class="options-grid">
+              ${options.map(opt => `
+                <button class="option-btn" onclick="checkQuiz1(this, '${opt}', '${target.word}', '${target.id}')">${opt}</button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div>`;
+      container.innerHTML = html;
+      renderActiveFlashcard();
+    }
+
+    function checkQuiz1(btn, chosen, correct, wordId) {
+      const parent = document.getElementById('s1-q-' + wordId);
+      const status = document.getElementById('s1-status-' + wordId);
+      parent.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = true;
+        if (b.innerText === correct) b.classList.add('correct');
+        else if (b === btn && chosen !== correct) b.classList.add('wrong');
+      });
+      if (chosen === correct) {
+        status.innerHTML = '<span style="color:#059669; font-weight:700;">✓ Correct</span>';
+      } else {
+        status.innerHTML = '<span style="color:#dc2626; font-weight:700;">✗ ' + correct + '</span>';
+      }
+    }
+
+    /* STEP 2: UNDERSTANDING */
+    function buildStep2() {
+      const s2WordsA = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-2-content');
+
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#2563eb;">A</span> Match Definition to Word</h3>
+              <p>Read each English definition and choose the target word. (English only, no Russian)</p>
+            </div>
+          </div>
+          <div class="exercise-grid">
+      `;
+
+      s2WordsA.forEach((target, idx) => {
+        const others = VOCABULARY.filter(x => x.id !== target.id);
+        const distractors = shuffleArray(others).slice(0, 3).map(x => x.word);
+        const options = shuffleArray([target.word, ...distractors]);
+
+        html += `
+          <div class="item-card" id="s2-def-${target.id}">
+            <div>
+              <div class="item-card-header">
+                <span style="color:#2563eb;">Definition ${idx + 1}</span>
+                <span id="s2-def-status-${target.id}"></span>
+              </div>
+              <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:0.6rem; padding:0.85rem; margin:0.5rem 0; font-size:0.88rem; font-style:italic;">
+                "${target.definition}"
+              </div>
+            </div>
+            <div class="options-grid">
+              ${options.map(opt => `
+                <button class="option-btn" onclick="checkGeneric(this, '${opt}', '${target.word}', 's2-def-status-${target.id}')">${opt}</button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#2563eb;">B</span> Find the Synonym</h3><p>Choose the closest English synonym. Explanation appears upon checking.</p></div></div><div class="exercise-grid">`;
+
+      const s2WordsB = shuffleArray(VOCABULARY);
+      s2WordsB.forEach((target, idx) => {
+        const options = shuffleArray([target.synonym, ...target.synonymDistractors]);
+        html += `
+          <div class="item-card" id="s2-syn-${target.id}">
+            <div>
+              <div class="item-card-header">
+                <span style="color:#2563eb;">Target Word</span>
+                <span id="s2-syn-status-${target.id}"></span>
+              </div>
+              <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:0.6rem; padding:0.75rem; text-align:center; margin:0.5rem 0;">
+                <span style="font-size:1.35rem; font-weight:800; font-family:'Baloo 2', sans-serif; color:#1e3a8a;">${target.word}</span>
+              </div>
+            </div>
+            <div class="options-grid">
+              ${options.map(opt => `
+                <button class="option-btn" onclick="checkSynonym(this, '${opt}', '${target.synonym}', '${target.id}')">${opt}</button>
+              `).join('')}
+            </div>
+            <div id="syn-exp-${target.id}" style="display:none;" class="explanation-box">${target.synonymExplanation}</div>
+          </div>
+        `;
+      });
+
+      html += `</div></div>`;
+      container.innerHTML = html;
+    }
+
+    function checkGeneric(btn, chosen, correct, statusId) {
+      const parent = btn.parentElement;
+      const status = document.getElementById(statusId);
+      parent.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = true;
+        if (b.innerText === correct) b.classList.add('correct');
+        else if (b === btn && chosen !== correct) b.classList.add('wrong');
+      });
+      if (status) {
+        if (chosen === correct) {
+          status.innerHTML = '<span style="color:#059669; font-weight:700;">✓ Correct</span>';
+        } else {
+          status.innerHTML = '<span style="color:#dc2626; font-weight:700;">✗ ' + correct + '</span>';
+        }
+      }
+    }
+
+    function checkSynonym(btn, chosen, correct, id) {
+      checkGeneric(btn, chosen, correct, 's2-syn-status-' + id);
+      const exp = document.getElementById('syn-exp-' + id);
+      if (exp) exp.style.display = 'block';
+    }
+
+    /* STEP 3: APPLYING */
+    function buildStep3() {
+      const s3Words = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-3-content');
+      const allWordsAlpha = [...VOCABULARY].map(w => w.word).sort();
+
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#059669;">A</span> Fill in the Gaps</h3>
+              <p>Select the correct word from the dropdown to complete each English sentence.</p>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.85rem;">
+      `;
+
+      s3Words.forEach((target, idx) => {
+        const parts = target.gapSentence.split('{{word}}');
+        html += `
+          <div style="padding:1rem; border:1px solid #e2e8f0; border-radius:0.75rem; background:#f8fafc; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <div style="font-size:0.9rem; flex:1; min-width:280px;">
+              <strong>${idx + 1}.</strong> ${parts[0]}
+              <select id="gap-select-${target.id}">
+                <option value="">-- select word --</option>
+                ${allWordsAlpha.map(w => `<option value="${w}">${w}</option>`).join('')}
+              </select>
+              ${parts[1] || ''}
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <button class="secondary-btn" onclick="checkGapSentence('${target.id}', '${target.word}')">Check</button>
+              <span id="gap-feedback-${target.id}" style="font-size:0.8rem; font-weight:700;"></span>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#059669;">B</span> Complete the Sentence</h3><p>Choose the best logical ending from 3 options.</p></div></div><div style="display:flex; flex-direction:column; gap:1.25rem;">`;
+
+      const s3WordsB = shuffleArray(VOCABULARY);
+      s3WordsB.forEach((target, idx) => {
+        const { prompt, correctEnding, distractors, explanation } = target.sentenceCompletion;
+        const options = shuffleArray([correctEnding, ...distractors]);
+
+        html += `
+          <div class="item-card" id="s3-comp-${target.id}">
+            <div style="font-size:0.95rem; font-weight:700; color:#0f172a; margin-bottom:0.25rem;">
+              ${idx + 1}. ${prompt}
+            </div>
+            <div class="options-stack">
+              ${options.map(opt => `
+                <button class="option-btn" style="text-align:left;" onclick="checkSentenceOption(this, '${opt.replace(/'/g, "\\'")}', '${correctEnding.replace(/'/g, "\\'")}', '${target.id}')">${opt}</button>
+              `).join('')}
+            </div>
+            <div id="comp-exp-${target.id}" style="display:none;" class="explanation-box">
+              <strong>Why this ending is best:</strong> ${explanation}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#059669;">C</span> Mini Dialogues</h3><p>Natural two-line dialogues. Fill Speaker B's response from 3 choices.</p></div></div><div class="exercise-grid">`;
+
+      const s3Dialogues = shuffleArray(VOCABULARY).slice(0, 5);
+      s3Dialogues.forEach((target, idx) => {
+        const { speakerA, speakerB, targetWord, distractors } = target.dialogue;
+        const options = shuffleArray([targetWord, ...distractors]);
+        const parts = speakerB.split('{{word}}');
+
+        html += `
+          <div class="item-card" id="s3-dlg-${target.id}">
+            <div class="dialogue-box">
+              <div><span class="speaker-label" style="color:#4f46e5;">A:</span> "${speakerA}"</div>
+              <div style="border-top:1px solid #f1f5f9; padding-top:0.35rem;">
+                <span class="speaker-label" style="color:#059669;">B:</span>
+                "${parts[0]}<span id="dlg-word-${target.id}" style="font-weight:800; text-decoration:underline; color:#059669;">[ _____ ]</span>${parts[1] || ''}"
+              </div>
+            </div>
+            <div class="options-grid-3">
+              ${options.map(opt => `
+                <button class="option-btn" onclick="checkDialogueOption(this, '${opt}', '${targetWord}', '${target.id}')">${opt}</button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div>`;
+      container.innerHTML = html;
+    }
+
+    function checkGapSentence(id, expected) {
+      const sel = document.getElementById('gap-select-' + id);
+      const fb = document.getElementById('gap-feedback-' + id);
+      if (!sel.value) return;
+      if (sel.value === expected) {
+        fb.innerHTML = '<span style="color:#059669;">✓ Correct!</span>';
+        sel.style.borderColor = '#059669';
+      } else {
+        fb.innerHTML = '<span style="color:#dc2626;">✗ Expected: ' + expected + '</span>';
+        sel.style.borderColor = '#dc2626';
+      }
+    }
+
+    function checkSentenceOption(btn, chosen, correct, id) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = true;
+        if (b.innerText === correct) b.classList.add('correct');
+        else if (b === btn && chosen !== correct) b.classList.add('wrong');
+      });
+      const exp = document.getElementById('comp-exp-' + id);
+      if (exp) exp.style.display = 'block';
+    }
+
+    function checkDialogueOption(btn, chosen, correct, id) {
+      const parent = btn.parentElement;
+      const slot = document.getElementById('dlg-word-' + id);
+      parent.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = true;
+        if (b.innerText === correct) b.classList.add('correct');
+        else if (b === btn && chosen !== correct) b.classList.add('wrong');
+      });
+      if (slot) slot.innerText = ' ' + chosen + ' ';
+    }
+
+    /* STEP 4: ANALYZING */
+    function buildStep4() {
+      const s4Words = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-4-content');
+
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#d97706;">A</span> Odd One Out</h3>
+              <p>Three English words per row. Find which one doesn't belong and see the semantic logic.</p>
+            </div>
+          </div>
+          <div class="exercise-grid">
+      `;
+
+      s4Words.forEach((target, idx) => {
+        const { words: trio, intruder, explanation } = target.oddOneOut;
+        const shuffledTrio = shuffleArray(trio);
+
+        html += `
+          <div class="item-card" id="s4-odd-${target.id}">
+            <div class="item-card-header">
+              <span style="color:#d97706;">Row ${idx + 1}</span>
+              <span id="odd-status-${target.id}"></span>
+            </div>
+            <div class="options-grid-3">
+              ${shuffledTrio.map(w => `
+                <button class="option-btn" onclick="checkOddOut(this, '${w}', '${intruder}', '${target.id}')">${w}</button>
+              `).join('')}
+            </div>
+            <div id="odd-exp-${target.id}" style="display:none;" class="explanation-box">${explanation}</div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#d97706;">B</span> Word Families</h3><p>Morphological connections: verb → noun → adjective → adverb</p></div></div><div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:0.85rem;"><tr style="background:#fef3c7; text-align:left;"><th style="padding:0.6rem;">Target Word</th><th style="padding:0.6rem;">Verb</th><th style="padding:0.6rem;">Noun</th><th style="padding:0.6rem;">Adjective</th><th style="padding:0.6rem;">Adverb</th></tr>`;
+
+      VOCABULARY.forEach(w => {
+        html += `
+          <tr style="border-bottom:1px solid #f1f5f9;">
+            <td style="padding:0.6rem; font-weight:700; color:#0f172a; font-family:'Baloo 2', sans-serif;">${w.word}</td>
+            <td style="padding:0.6rem; font-style:italic;">${w.wordFamily.verb}</td>
+            <td style="padding:0.6rem; font-weight:600;">${w.wordFamily.noun}</td>
+            <td style="padding:0.6rem; font-weight:600;">${w.wordFamily.adjective}</td>
+            <td style="padding:0.6rem; font-family:monospace; color:#b45309;">${w.wordFamily.adverb}</td>
+          </tr>
+        `;
+      });
+
+      html += `</table></div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#d97706;">C</span> Sort into Categories</h3><p>Click words to assign them to categories, then reveal correct sorting.</p></div></div><div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem;" id="cat-chips">`;
+
+      VOCABULARY.forEach(w => {
+        html += `<span class="chip-btn" id="cat-word-${w.id}" onclick="assignToNextCategory('${w.id}')">${w.word} [<span id="cat-label-${w.id}" style="color:#d97706;">Unassigned</span>]</span>`;
+      });
+
+      html += `</div><div style="display:flex; gap:0.5rem;"><button class="action-btn" style="background:#d97706;" onclick="revealCategories()">Reveal Correct Sorting</button><button class="secondary-btn" onclick="resetCategories()">Reset</button></div><div id="cat-reveal-box" style="display:none; margin-top:1rem;" class="explanation-box"><strong>Actions & Decisions:</strong> hesitate, persuade, advocate, hinder<br><strong>States & Mindset:</strong> reluctant, resilient<br><strong>Qualities & Impact:</strong> thrive, ambiguous, crucial, subtle</div></div>`;
+
+      container.innerHTML = html;
+    }
+
+    function checkOddOut(btn, chosen, intruder, id) {
+      checkGeneric(btn, chosen, intruder, 'odd-status-' + id);
+      const exp = document.getElementById('odd-exp-' + id);
+      if (exp) exp.style.display = 'block';
+    }
+
+    const categoryList = ['Actions & Decisions', 'States & Mindset', 'Qualities & Impact'];
+    const catMap = {};
+
+    function assignToNextCategory(wordId) {
+      const current = catMap[wordId] || 0;
+      const next = (current + 1) % 4; // 0=Unassigned, 1, 2, 3
+      catMap[wordId] = next;
+      const label = document.getElementById('cat-label-' + wordId);
+      if (label) {
+        label.innerText = next === 0 ? 'Unassigned' : categoryList[next - 1];
+      }
+    }
+
+    function revealCategories() {
+      const box = document.getElementById('cat-reveal-box');
+      if (box) box.style.display = 'block';
+    }
+
+    function resetCategories() {
+      VOCABULARY.forEach(w => {
+        catMap[w.id] = 0;
+        const label = document.getElementById('cat-label-' + w.id);
+        if (label) label.innerText = 'Unassigned';
+      });
+      const box = document.getElementById('cat-reveal-box');
+      if (box) box.style.display = 'none';
+    }
+
+    /* STEP 5: EVALUATING */
+    function buildStep5() {
+      const s5Words = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-5-content');
+
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#ea580c;">A</span> Open Reflection Questions</h3>
+              <p>One question per target word. Toggle "Sample answer" to see a model response.</p>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1.25rem;">
+      `;
+
+      s5Words.forEach((target, idx) => {
+        html += `
+          <div class="item-card">
+            <div class="item-card-header">
+              <span style="color:#ea580c;">Question ${idx + 1} · Target: <strong>${target.word}</strong></span>
+            </div>
+            <p style="font-weight:700; font-size:0.92rem; color:#0f172a;">${target.openQuestion}</p>
+            <textarea rows="2" placeholder="Write your reflection in English using '${target.word}'..."></textarea>
+            <div>
+              <button class="secondary-btn" onclick="toggleSample('sample-open-${target.id}')">Toggle Sample Answer</button>
+              <div id="sample-open-${target.id}" style="display:none; margin-top:0.5rem;" class="explanation-box">
+                <strong>Model Answer:</strong> "${target.sampleOpenAnswer}"
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#ea580c;">B</span> Register Awareness</h3><p>Classify formality: Formal, Neutral, Informal, or Slang.</p></div></div><div class="exercise-grid">`;
+
+      const registers = ['Formal', 'Neutral', 'Informal', 'Slang'];
+      const s5WordsB = shuffleArray(VOCABULARY);
+      s5WordsB.forEach((target, idx) => {
+        html += `
+          <div class="item-card" id="s5-reg-${target.id}">
+            <div class="item-card-header">
+              <span style="color:#ea580c;">Item ${idx + 1}</span>
+              <span id="reg-status-${target.id}"></span>
+            </div>
+            <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:0.6rem; padding:0.65rem; text-align:center;">
+              <span style="font-size:1.25rem; font-weight:800; font-family:'Baloo 2', sans-serif; color:#0f172a;">${target.word}</span>
+            </div>
+            <div class="options-grid-4">
+              ${registers.map(r => `
+                <button class="option-btn" onclick="checkRegister(this, '${r}', '${target.register}', '${target.id}')">${r}</button>
+              `).join('')}
+            </div>
+            <div id="reg-exp-${target.id}" style="display:none;" class="explanation-box">${target.registerExplanation}</div>
+          </div>
+        `;
+      });
+
+      html += `</div></div><div class="card-panel"><div class="panel-header"><div class="panel-header-title"><h3><span class="badge-number" style="background:#ea580c;">C</span> Agree or Disagree</h3><p>Speaking practice statements. Click AGREE or DISAGREE to reveal a discussion prompt.</p></div></div><div style="display:flex; flex-direction:column; gap:1rem;">`;
+
+      s5Words.slice(0, 7).forEach((target, idx) => {
+        html += `
+          <div class="item-card">
+            <div class="item-card-header">
+              <span style="color:#ea580c;">Statement ${idx + 1} · Target: <strong>${target.word}</strong></span>
+            </div>
+            <p style="font-size:0.95rem; font-weight:700; color:#0f172a;">"${target.agreeDisagreeStatement}"</p>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="action-btn" style="background:#059669; padding:0.4rem 1rem;" onclick="showDebatePrompt('${target.id}', 'Agree')">AGREE</button>
+              <button class="action-btn" style="background:#dc2626; padding:0.4rem 1rem;" onclick="showDebatePrompt('${target.id}', 'Disagree')">DISAGREE</button>
+            </div>
+            <div id="debate-${target.id}" style="display:none; margin-top:0.5rem;" class="explanation-box">
+              <strong>Speaking Challenge:</strong> ${target.discussionPrompt}
+            </div>
+          </div>
+        `;
+      });
+
+      html += `</div></div>`;
+      container.innerHTML = html;
+    }
+
+    function toggleSample(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function checkRegister(btn, chosen, correct, id) {
+      checkGeneric(btn, chosen, correct, 'reg-status-' + id);
+      const exp = document.getElementById('reg-exp-' + id);
+      if (exp) exp.style.display = 'block';
+    }
+
+    function showDebatePrompt(id, stance) {
+      const el = document.getElementById('debate-' + id);
+      if (el) el.style.display = 'block';
+    }
+
+    /* STEP 6: CREATING */
+    function buildStep6() {
+      const s6Words = shuffleArray(VOCABULARY);
+      const container = document.getElementById('step-6-content');
+
+      let html = `
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#dc2626;">A</span> Personal Writing (Real Situation)</h3>
+              <p>Write 5–6 sentences about a real situation from your life. Use at least 6 words from the word bank.</p>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#64748b; margin-bottom:0.25rem;">Word Bank (click to toggle marked as used):</div>
+            <div>
+              ${s6Words.map(w => `<button class="chip-btn" onclick="toggleChip(this)">${w.word}</button>`).join('')}
+            </div>
+          </div>
+          <textarea rows="5" placeholder="Write 5-6 sentences about your real life experience..."></textarea>
+          <div style="margin-top:0.75rem;">
+            <button class="secondary-btn" onclick="toggleSample('sample-writing-a')">Toggle Sample Answer</button>
+            <div id="sample-writing-a" style="display:none; margin-top:0.5rem;" class="explanation-box">
+              Last year, our team faced a crucial milestone when our primary database crashed. At first, colleagues were reluctant to take responsibility and began to hesitate about meeting the deadline. However, as an advocate for rapid communication, I persuaded management to run an audit. Fortunately, our engineering group proved remarkably resilient and eliminated bottlenecks that would hinder progress. Thanks to subtle adjustments, our platform began to thrive within weeks.
+            </div>
+          </div>
+        </div>
+
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#dc2626;">B</span> Scenario Writing (Professional Challenge)</h3>
+              <p>Scenario: Write a message to a director or client advocating for a solution. Use at least 4 target words.</p>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#64748b; margin-bottom:0.25rem;">Word Bank:</div>
+            <div>
+              ${s6Words.map(w => `<button class="chip-btn" onclick="toggleChip(this)">${w.word}</button>`).join('')}
+            </div>
+          </div>
+          <textarea rows="5" placeholder="Draft your professional email or memo here..."></textarea>
+          <div style="margin-top:0.75rem;">
+            <button class="secondary-btn" onclick="toggleSample('sample-writing-b')">Toggle Sample Workplace Email</button>
+            <div id="sample-writing-b" style="display:none; margin-top:0.5rem;" class="explanation-box">
+              Subject: Urgent Proposal: Removing Operational Bottlenecks in Supply Procurement<br><br>
+              Dear Operations Committee,<br>
+              I am writing to advocate for an immediate review of our logistics contract. Currently, ambiguous clauses surrounding shipping fees severely hinder our distribution schedule. Several supervisors are reluctant to sign off on additional shipments until liability is clarified. It is crucial that we persuade the vendor to adopt transparent timelines so our distribution can thrive. We must not hesitate to renegotiate these terms.<br><br>
+              Sincerely,<br>
+              Senior Logistics Lead
+            </div>
+          </div>
+        </div>
+
+        <div class="card-panel">
+          <div class="panel-header">
+            <div class="panel-header-title">
+              <h3><span class="badge-number" style="background:#dc2626;">C</span> Storytelling Prompt</h3>
+              <p>Outline: "A rainy evening. A café. A phone call. A decision." Write 6–8 sentences. Use at least 5 target words.</p>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:#64748b; margin-bottom:0.25rem;">Word Bank:</div>
+            <div>
+              ${s6Words.map(w => `<button class="chip-btn" onclick="toggleChip(this)">${w.word}</button>`).join('')}
+            </div>
+          </div>
+          <textarea rows="6" placeholder="Bring the scenes to life! 'A rainy evening. A café. A phone call. A crucial decision.'..."></textarea>
+          <div style="margin-top:0.75rem;">
+            <button class="secondary-btn" onclick="toggleSample('sample-writing-c')">Toggle Sample Story</button>
+            <div id="sample-writing-c" style="display:none; margin-top:0.5rem;" class="explanation-box">
+              A rainy evening in London. Inside the dimly lit café, Thomas sat with an untouched espresso, struggling not to hesitate as the clock ticked past eight. The cryptic letter in his coat pocket was dangerously ambiguous, yet its implications were crucial. When his phone finally vibrated, a reluctant voice warned him that rivals were conspiring to hinder the public release of the laboratory records. To thrive in this dangerous game, Thomas knew he had to be resilient. He made a subtle nod to his contact and stepped into the storm to persuade the only journalist who could reveal the truth.
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    function toggleChip(btn) {
+      btn.classList.toggle('used');
+    }
+
+    // Initialize all steps on load
+    window.addEventListener('DOMContentLoaded', function() {
+      buildStep1();
+      buildStep2();
+      buildStep3();
+      buildStep4();
+      buildStep5();
+      buildStep6();
+    });
+  </script>
+</body>
+</html>

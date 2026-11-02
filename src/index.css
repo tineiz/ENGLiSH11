@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-warm-cream: #f7f4ee;
+  }
+  
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    background-color: #f7f4ee;
+    color: #1e293b;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Baloo 2', cursive, system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* 3D Flashcard Flip utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
